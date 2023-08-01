@@ -28,30 +28,35 @@
 			console.error('Error submitting form:', error);
 			// Display an error message to the user
 		}
+
+		event.target.reset();
 	};
 </script>
 
-<h1 class="text-center text-5xl font-serif font-extrabold text-purple-500 m-5">
-	<span class="text-transparent bg-clip-text bg-gradient-to-r to-purple-700 from-purple-400"
-		>Nova objava</span
-	>
-</h1>
-<div class="container grid place-items-center">
-	<form method="POST" on:submit={handleSubmit}>
+<div class="flex flex-col items-center justify-center mt-6">
+	<h1 class="text-center text-5xl font-serif font-extrabold text-purple-500 m-5">
+		<span class="text-transparent bg-clip-text bg-gradient-to-r to-purple-700 from-purple-400"
+			>Nova objava</span
+		>
+	</h1>
+	<form class="w-full max-w-sm" id="form_id" method="POST" on:submit={handleSubmit}>
 		<div class="grid place-items-center mb-2 p-4">
-			<label for="naziv" class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">
+			<label for="naziv" class="block mb-3 text-xl font-medium text-gray-900 dark:text-white">
 				Vnesite naziv:</label
 			>
 			<input
 				type="text"
 				name="naziv"
 				required
+				min="1"
+				max="50"
 				placeholder="Naziv"
-				class="block h-12 mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				pattern="([A-Za-z0-9\s])\w+"
+				class="block h-12 mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-m rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 			/>
 		</div>
 		<div class="grid place-items-center mb-0.5 p-4">
-			<label for="opis" class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">
+			<label for="opis" class="block mb-3 text-xl font-medium text-gray-900 dark:text-white">
 				Vnesite opis:</label
 			>
 			<input
@@ -59,7 +64,10 @@
 				name="opis"
 				required
 				placeholder="Opis"
-				class="block h-40 w-80 pl-4 mt-2 text-sm rounded-lg text-gray-900 border border-gray-300 bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				min="1"
+				max="100"
+				pattern="([A-Ža-ž0-9\s])\w+"
+				class="block h-40 w-80 pl-4 mt-2 text-m rounded-lg text-gray-900 border border-gray-300 bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 			/>
 		</div>
 		<br />
@@ -72,3 +80,4 @@
 		</div>
 	</form>
 </div>
+
