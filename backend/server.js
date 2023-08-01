@@ -10,5 +10,5 @@ app.use(bodyParser.json());
 
 
 app.listen(port, () => {
-    console.log('Server deluje na portu: ${port}');
+    console.log('Server deluje na portu: ' + port);
 })
