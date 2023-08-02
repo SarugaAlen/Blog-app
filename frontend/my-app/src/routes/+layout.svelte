@@ -3,14 +3,15 @@
 </script>
 <body class="flex flex-col min-h-screen">
     <header>
-        <nav class="flex items-center justify-between flex-wrap bg-purple-500 p-6">
-            <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <nav class="flex items-center justify-between flex-wrap bg-white p-6">
+            <div class="flex items-center flex-shrink-0 text-purple-700 mr-6">
                 <h2 class="font-semibold text-xl tracking-tight"><a href="/">Home</a></h2>
             </div>
             <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                <div class="text-sm lg:flex-grow">
-                <h2 class="block mt-4 lg:inline-block lg:mt-0 text-purple-100 hover:text-white mr-4"><a href="/about">About</a></h2>
-                <h2 class="block mt-4 lg:inline-block lg:mt-0 text-purple-100 hover:text-white mr-4"><a href="/new">New</a></h2>
+                <div class="text-m lg:flex-grow">
+                <h2 class="block mt-4 lg:inline-block lg:mt-0 text-purple-500 hover:text-purple-800 mr-4"><a href="/about">About</a></h2>
+                <h2 class="block mt-4 lg:inline-block lg:mt-0 text-purple-500 hover:text-purple-800 mr-4"><a href="/new">New</a></h2>
+                <h2 class="block mt-4 lg:inline-block lg:mt-0 text-purple-500 hover:text-purple-800 mr-4"><a href="/posts">Posts</a></h2>
             </div>
         </div>
         </nav>

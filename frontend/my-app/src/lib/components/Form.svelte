@@ -1,10 +1,13 @@
 <script>
+	// @ts-ignore
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const formData = {
 			naziv: event.target.naziv.value,
-			opis: event.target.opis.value
+			opis: event.target.opis.value,
+			avtor: 'admin',
+			date: new Date().toISOString().slice(0, 10)
 		};
 
 		try {
@@ -18,15 +21,12 @@
 
 			if (response.ok) {
 				const responseData = await response.json();
-				console.log(responseData.msg); // Display success message from the backend
-				// You can also reset the form or show a success message to the user
+				console.log(responseData.msg);
 			} else {
 				console.error('Failed to submit form:', response.status, response.statusText);
-				// Display an error message to the user
 			}
 		} catch (error) {
 			console.error('Error submitting form:', error);
-			// Display an error message to the user
 		}
 
 		event.target.reset();
