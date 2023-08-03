@@ -24,7 +24,7 @@ const getCollection = async (collectionName) => {
 };
 
 app.post('/objava', async (req, res) => {
-    console.log(req.body) //you will get your data in this as object.
+    console.log(req.body) 
     const { naziv, opis, date} = req.body;
     if(!naziv || !opis || !date){
         return res.status(400).json({msg: 'Prosim vključite naziv in opis'})

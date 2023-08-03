@@ -1,11 +1,11 @@
-<script>
+<script lang='ts'>
 // @ts-nocheck
     import { blur } from 'svelte/transition';
 
-    export let _id;
-    export let naziv;
-    export let opis;
-    export let date;
+    export let _id: string;
+    export let naziv: string;
+    export let opis: string;
+    export let date: string;
 
 </script>
 

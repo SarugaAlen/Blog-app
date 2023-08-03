@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import Post from '$lib/components/posts/Post.svelte';
 
-	export let posts = [];
+	export let posts: any = [];
 
 	onMount(async () => {
 		const response = await fetch('http://localhost:3001/posts', {
