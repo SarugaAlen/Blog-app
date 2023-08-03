@@ -1,37 +1,7 @@
 <script>
-	// @ts-ignore
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-
-		const formData = {
-			naziv: event.target.naziv.value,
-			opis: event.target.opis.value,
-			avtor: 'admin',
-			date: new Date().toISOString().slice(0, 10)
-		};
-
-		try {
-			const response = await fetch('http://localhost:3001/objava', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(formData)
-			});
-
-			if (response.ok) {
-				const responseData = await response.json();
-				console.log(responseData.msg);
-			} else {
-				console.error('Failed to submit form:', response.status, response.statusText);
-			}
-		} catch (error) {
-			console.error('Error submitting form:', error);
-		}
-
-		event.target.reset();
-	};
+	import { handleSubmit } from './formSubmit.js';
 </script>
+
 
 <div class="flex flex-col items-center justify-center mt-6">
 	<h1 class="text-center text-5xl font-serif font-extrabold text-purple-500 m-5">
@@ -51,7 +21,7 @@
 				min="1"
 				max="50"
 				placeholder="Naziv"
-				pattern="[A-Za-z0-9\s]+"
+				pattern="[A-Ža-ž0-9\s]+"
 				class="block h-12 mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-m rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 			/>
 		</div>
@@ -66,7 +36,7 @@
 				placeholder="Opis"
 				min="1"
 				max="100"
-				pattern="[A-Za-z0-9\s]+"
+				pattern="[A-Ža-ž0-9\s]+"
 				class="block h-40 w-80 pl-4 mt-2 text-m rounded-lg text-gray-900 border border-gray-300 bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 			/>
 		</div>
