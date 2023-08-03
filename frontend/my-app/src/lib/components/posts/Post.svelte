@@ -1,19 +1,18 @@
 <script>
 // @ts-nocheck
-
     import { blur } from 'svelte/transition';
 
     export let _id;
     export let naziv;
     export let opis;
-    export let datum;
+    export let date;
 
 </script>
 
 <div transition:blur class="items-center overflow-hidden rounded-xl shadow-lg m-5 w-4/5">
     <div class="flex flex-row">
         <h2 class="text-2xl w-64 text-purple-600 font-semibold p-4 text-left">{naziv}</h2>
-        <p class="text-m w-32 font-semibold ml-auto p-4 text-right">{datum}</p>
+        <p class="text-m w-32 font-semibold ml-auto p-4 text-right">{date}</p>
     </div>
     <div class="flex flex-col items-center justify-center mb-6">
         <p class="text-m text-center">{opis}</p>

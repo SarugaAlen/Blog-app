@@ -25,17 +25,31 @@ const getCollection = async (collectionName) => {
 
 app.post('/objava', async (req, res) => {
     console.log(req.body) //you will get your data in this as object.
-    const { naziv, opis} = req.body;
-    if(!naziv || !opis){
+    const { naziv, opis, date} = req.body;
+    if(!naziv || !opis || !date){
         return res.status(400).json({msg: 'Prosim vključite naziv in opis'})
     }
 
     try {
         const postCollection = await getCollection('posts');
 
-        await postCollection.insertOne({naziv, opis});
+        await postCollection.insertOne({naziv, opis, date, author: 'admin'});
 
         return res.status(201).json({msg: 'Objava je bila uspešno dodana'});
+    }
+    catch(error){
+        console.error(error);
+        return res.status(500).json({ error: 'Nekaj je šlo narobe'});
+    }
+});
+
+app.get('/posts', async (req, res) => {
+    try{
+        const postCollection = await getCollection('posts');
+
+        const posts = await postCollection.find({}).toArray();
+
+        return res.status(200).json({posts});
     }
     catch(error){
         console.error(error);
