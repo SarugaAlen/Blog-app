@@ -25,7 +25,7 @@
 		</div>
 	{:else}
     <div>
-		<h1 class="text-black ">There are no posts</h1>
+		<h1 class="text-black text-center text-2xl">There are no posts</h1>
     </div>
 	{/if}
 </main>
