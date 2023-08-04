@@ -23,7 +23,7 @@ const getCollection = async (collectionName) => {
     return db.collection(collectionName)
 };
 
-app.post('/objava', async (req, res) => {
+app.post('/blogPost', async (req, res) => {
     console.log(req.body) 
     const { naziv, opis, date} = req.body;
     if(!naziv || !opis || !date){
@@ -50,6 +50,21 @@ app.get('/posts', async (req, res) => {
         const posts = await postCollection.find({}).toArray();
 
         return res.status(200).json({posts});
+    }
+    catch(error){
+        console.error(error);
+        return res.status(500).json({ error: 'Nekaj je šlo narobe'});
+    }
+});
+
+
+app.get('/blogPost/{id}', async (req, res) => {
+    try{
+        const postCollection = await getCollection('posts');
+
+        const post = await postCollection.findOne({id: req.params.id});
+
+        return res.status(200).json({post});
     }
     catch(error){
         console.error(error);
