@@ -57,13 +57,20 @@ app.get('/posts', async (req, res) => {
     }
 });
 
-
-app.get('/blogPost/{id}', async (req, res) => {
+app.get('/blogPost/:_id', async (req, res) => {
     try{
+        console.log("Dobil sem id: ", req.params._id);
+        let id = req.params._id;
         const postCollection = await getCollection('posts');
 
-        const post = await postCollection.findOne({id: req.params.id});
+        const post = await postCollection.findOne({ id: id});
 
+        if(!post){
+            console.log("Objava ni najdena")
+            return res.status(404).json({ error: 'Objava s tem id-jem ne obstaja'});
+        }
+
+        console.log('Response data:' , post)
         return res.status(200).json({post});
     }
     catch(error){
