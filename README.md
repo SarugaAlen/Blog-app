@@ -23,7 +23,7 @@ This is a blog website where users can read and write blog posts. The website ha
 
   ## Technologies
 
-- SvelteKit: [Link](https://kit.svelte.dev/)
-- Tailwind CSS: [Link](https://tailwindcss.com/)
-- Express.js: [Link](https://expressjs.com/)
-- MongoDB: [Link](https://www.mongodb.com/)
+- [SvelteKit:](https://kit.svelte.dev/)
+- [Tailwind CSS:](https://tailwindcss.com/)
+- [Express.js:](https://expressjs.com/)
+- [MongoDB:](https://www.mongodb.com/)
