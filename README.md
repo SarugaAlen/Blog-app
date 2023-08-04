@@ -15,7 +15,6 @@ This is a blog website where users can read and write blog posts. The website ha
 
 ## Features
 
-- List the key features of your blog website, such as:
   - User authentication and registration - TODO
   - Creating blog posts
   - Commenting on blog posts -TODO
