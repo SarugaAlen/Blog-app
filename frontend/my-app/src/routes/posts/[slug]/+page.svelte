@@ -2,6 +2,8 @@
 	export let data;
   import { onMount } from 'svelte';
   import { getPost } from './getPost';
+  import Posts from '$lib/components/posts/SinglePagePost.svelte';
+	import SinglePagePost from '$lib/components/posts/SinglePagePost.svelte';
 
   let id = data.slug;
   let post;
@@ -15,13 +17,6 @@
 </script>
 
 <main>
-  {#if post}
-		<h1>{post.naziv}</h1>
-    <p>{post.opis}</p>
-		<p>{post.author}</p>
-    <p>{post.date}</p>
-	{:else}
-		<p>Loading...</p>
-	{/if}
+  <SinglePagePost {...post} />
 	
 </main>
