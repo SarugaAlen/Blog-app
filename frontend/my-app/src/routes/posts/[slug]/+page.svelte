@@ -1,11 +1,13 @@
 <script>
 	export let data;
-  let id = data.slug;
-	import { onMount } from 'svelte';
-  import { getPost } from './getPost'
+  import { onMount } from 'svelte';
+  import { getPost } from './getPost';
 
-  console.log("ID: ", id)
+  let id = data.slug;
   let post;
+	
+  console.log("ID: ", id)
+
   onMount(async () => {
     post = await getPost(id);
     console.log("Post: " ,post);

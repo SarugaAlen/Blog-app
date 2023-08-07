@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
+const { ObjectId } = require('mongodb');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
@@ -57,13 +58,12 @@ app.get('/posts', async (req, res) => {
     }
 });
 
-app.get('/blogPost/:_id', async (req, res) => {
+app.get('/blogPost/:id', async (req, res) => {
     try{
-        console.log("Dobil sem id: ", req.params._id);
-        let id = req.params._id;
+        console.log("Dobil sem id: ", req.params.id);
         const postCollection = await getCollection('posts');
 
-        const post = await postCollection.findOne({ id: id});
+        const post = await postCollection.findOne({ _id: new ObjectId(req.params.id)});
 
         if(!post){
             console.log("Objava ni najdena")
