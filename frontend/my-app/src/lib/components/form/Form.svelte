@@ -12,7 +12,7 @@
 	<form class="w-full max-w-sm" id="form_id" method="POST" on:submit={handleSubmit}>
 		<div class="grid place-items-center mb-2 p-4">
 			<label for="naziv" class="block mb-3 text-xl font-medium text-gray-900 dark:text-white">
-				Vnesite naziv:</label
+				Naziv:</label
 			>
 			<input
 				type="text"
@@ -27,7 +27,7 @@
 		</div>
 		<div class="grid place-items-center mb-0.5 p-4">
 			<label for="opis" class="block mb-3 text-xl font-medium text-gray-900 dark:text-white">
-				Vnesite opis:</label
+				Opis:</label
 			>
 			<input
 				type="text"
