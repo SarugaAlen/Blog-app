@@ -23,7 +23,7 @@
 	</main>
 
 	<footer
-		class="bg-white rounded-lg shadow m-4 dark:bg-gray-800 mt-auto flex items-center justify-center h-11 w-full"
+		class="bg-white rounded-lg shadow dark:bg-gray-800 mt-auto flex items-center justify-center h-11 w-full"
 	>
 		<span class="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-bold">© 2023</span>
 	</footer>

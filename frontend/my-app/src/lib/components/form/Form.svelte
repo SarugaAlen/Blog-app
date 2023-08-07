@@ -21,7 +21,7 @@
 				min="1"
 				max="50"
 				placeholder="Naziv"
-				pattern="[A-Ža-ž0-9\s]+"
+				pattern="[A-Ža-ž0-9\s.!?]+"
 				class="block h-12 mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-m rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 			/>
 		</div>
@@ -36,7 +36,7 @@
 				placeholder="Opis"
 				min="1"
 				max="100"
-				pattern="[A-Ža-ž0-9\s]+"
+				pattern="[A-Ža-ž0-9\s.,!?]+"
 				class="block h-40 w-80 pl-4 mt-2 text-m rounded-lg text-gray-900 border border-gray-300 bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 			/>
 		</div>
