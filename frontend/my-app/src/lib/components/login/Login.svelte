@@ -29,11 +29,8 @@
                 </button>
             </div>
             <div class="text-center">
-                <p class="text-sm">Še nimate računa? <span class="text-purple-500"><a href="/signup">Prijavite se</a></span></p>
+                <p class="text-sm">Še nimate računa? <span class="text-purple-500"><a href="/signup">Registrirajte se</a></span></p>
             </div>
         </form>
     </div>
 </div>
-
-
-
