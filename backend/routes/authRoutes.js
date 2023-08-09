@@ -1,26 +1,77 @@
-const epress = require('express');
+const express = require('express');
 const bcrypt = require('bcrypt');
-const User = require('../models/User');
-const router = epress.Router();
+const jwt = require('jsonwebtoken');
+const { getCollection } = require('../db');
+const router = express.Router();
+
 
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
 
-    try{
-        const existingUser = await User.findOne({ email });
-        if(existingUser){
-            return res.status(400).json({ msg: 'Uporabnik s tem emailom že obstaja'});
+    if (!username || !email || !password) {
+        return res.status(400).json({ msg: 'Please provide all required data' });
+    }
+
+    try {
+        const userCollection = await getCollection('users'); // Assuming users collection
+
+        const existingUser = await userCollection.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ msg: 'User with this email already exists' });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ username, email, password: hashedPassword });
-        await newUser.save();
+        const newUser = {
+            username,
+            email,
+            password: hashedPassword
+        };
 
-        res.status(201).json({ msg: 'Uporabnik je bil uspešno registriran'});
-    }
-    catch(error){
+        await userCollection.insertOne(newUser);
+
+        res.status(201).json({ msg: 'User registered successfully' });
+    } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Nekaj je šlo narobe'});
+        res.status(500).json({ error: 'Something went wrong' });
+    }
+});
+
+router.post('/login', async (req, res) => {
+    const { usernameOrEmail, password } = req.body;
+
+    if (!usernameOrEmail || !password) {
+        return res.status(400).json({ msg: 'Please provide email and password' });
+    }
+
+    try {
+        const userCollection = await getCollection('users');
+
+
+        const user = await userCollection.findOne({
+            $or: [
+                { username: usernameOrEmail },
+                { email: usernameOrEmail }
+            ]
+        });
+
+        console.log(user)
+
+        if (!user) {
+            return res.status(401).json({ msg: 'Invalid email or password' });
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ msg: 'Invalid email or password' });
+        }
+
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+
+        res.json({ token });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Something went wrong' });
     }
 });
 
