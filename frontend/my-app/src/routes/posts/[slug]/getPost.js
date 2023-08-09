@@ -2,7 +2,7 @@ export async function getPost(id) {
     try {
         console.log('Fetching post with ID:', id);
 
-        const response = await fetch('http://localhost:3001/blogPost/' + id, {
+        const response = await fetch('http://localhost:3001/blog/' + id, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

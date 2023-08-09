@@ -1,4 +1,5 @@
 <script>
+	import { handleFormSubmission } from "./loginSubmit";
 </script>
 
 <div class="flex flex-col justify-center items-center w-screen h-screen gradient bg-gradient-to-r from-blue-400 via-purple-600 to-pink-600 animate-gradient">
@@ -6,7 +7,7 @@
         <h1 class="text-center text-4xl sm:text-5xl font-serif font-extrabold text-purple-500 mb-4 sm:mb-5">
             <span class="text-transparent bg-clip-text bg-gradient-to-r to-purple-700 from-purple-400">Prijava</span>
         </h1>
-        <form method="POST" class="w-full mt-4">
+        <form method="POST" class="w-full mt-4" on:submit={handleFormSubmission}>
             <div class="mb-3">
                 <label for="username" class="block text-gray-600">Uporabniško ime</label>
                 <input type="text" id="username" name="username" placeholder="Uporabniško ime" required

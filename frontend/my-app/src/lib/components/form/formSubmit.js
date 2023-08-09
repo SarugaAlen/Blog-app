@@ -9,7 +9,7 @@ export async function handleSubmit(event)  {
     };
 
     try {
-        const response = await fetch('http://localhost:3001/blogPost', {
+        const response = await fetch('http://localhost:3001/blog/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
