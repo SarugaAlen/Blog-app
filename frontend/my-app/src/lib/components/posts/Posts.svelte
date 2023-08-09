@@ -5,7 +5,7 @@
 	export let posts: any = [];
 
 	onMount(async () => {
-		const response = await fetch('http://localhost:3001/posts', {
+		const response = await fetch('http://localhost:3001/blog/', {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json'

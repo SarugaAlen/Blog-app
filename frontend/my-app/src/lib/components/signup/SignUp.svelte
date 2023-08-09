@@ -50,11 +50,11 @@
 				/>
 			</div>
 			<div class="mb-4">
-				<label for="password2" class="block text-gray-600">Ponovite geslo</label>
+				<label for="passwordConfirmation" class="block text-gray-600">Ponovite geslo</label>
 				<input
 					type="password"
-					id="password2"
-					name="password2"
+					id="passwordConfirmation"
+					name="passwordConfirmation"
 					placeholder="Ponovite geslo"
 					required
 					class="w-full px-3 py-2 border-b border-purple-500 focus:outline-none"
