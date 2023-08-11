@@ -2,11 +2,11 @@ const express = require('express');
 const { ObjectId } = require('mongodb');
 const { getCollection } = require('../db');
 
-
 const router = express.Router();
+
 router.post('/', async (req, res) => {
-    console.log(req.body)
-    const { naziv, opis, date } = req.body;
+    console.log("to je req body", req.body)
+    const { naziv, opis, date, avtor} = req.body;
     if (!naziv || !opis || !date) {
         return res.status(400).json({ msg: 'Prosim vključite naziv in opis' })
     }
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     try {
         const postCollection = await getCollection('posts');
 
-        await postCollection.insertOne({ naziv, opis, date, author: 'admin' });
+        await postCollection.insertOne({ naziv, opis, date, avtor});
 
         return res.status(201).json({ msg: 'Objava je bila uspešno dodana' });
     }

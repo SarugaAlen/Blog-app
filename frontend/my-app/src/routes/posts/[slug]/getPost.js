@@ -19,7 +19,7 @@ export async function getPost(id) {
         if (!response.ok) {
             throw new Error('Failed to fetch post');
         }
-
+        console.log('Response data:', responseData);
         return responseData.post;
     } catch (error) {
         console.error('Error fetching post:', error);
