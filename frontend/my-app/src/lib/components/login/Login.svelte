@@ -1,5 +1,8 @@
 <script>
-	import { handleFormSubmission } from "./loginSubmit";
+	import { handleFormSubmission} from "./loginUtils";
+    import { onMount } from "svelte";
+
+    let isLoggedIn = false;
 </script>
 
 <div class="flex flex-col justify-center items-center w-screen h-screen gradient bg-gradient-to-r from-blue-400 via-purple-600 to-pink-600 animate-gradient">

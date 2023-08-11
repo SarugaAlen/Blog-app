@@ -5,6 +5,8 @@ const { getCollection } = require('../db');
 const router = express.Router();
 
 
+
+
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
 
@@ -13,8 +15,7 @@ router.post('/register', async (req, res) => {
     }
 
     try {
-        const userCollection = await getCollection('users'); // Assuming users collection
-
+        const userCollection = await getCollection('users');
         const existingUser = await userCollection.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ msg: 'User with this email already exists' });
@@ -45,16 +46,12 @@ router.post('/login', async (req, res) => {
 
     try {
         const userCollection = await getCollection('users');
-
-
         const user = await userCollection.findOne({
             $or: [
                 { username: usernameOrEmail },
                 { email: usernameOrEmail }
             ]
         });
-
-        console.log(user)
 
         if (!user) {
             return res.status(401).json({ msg: 'Invalid email or password' });
@@ -68,7 +65,7 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
 
-        res.json({ token });
+        res.json({ token, username: user.username });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Something went wrong' });
