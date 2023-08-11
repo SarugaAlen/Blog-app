@@ -6,7 +6,7 @@
 	export let naziv: string;
 	export let opis: string;
 	export let date: string;
-	export let author: string;
+	export let avtor: string;
 
 </script>
 
@@ -17,7 +17,7 @@
                 <p class="m-3">{opis}</p>
             </div>
             <div class="mt-auto mb-5 items-center justify-center">
-                <p class="text-gray-600 mr-4 font-semibold">{author}</p>
+                <p class="text-gray-600 mr-4 font-semibold">{avtor}</p>
                 <p class="text-gray-400">{date}</p>
             </div>
 	</div>
