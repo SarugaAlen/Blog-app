@@ -2,7 +2,7 @@ export async function handleFormSubmission(event) {
     event.preventDefault();
 
     const form = event.target;
-    
+
     const formData = {
         usernameOrEmail: form.username.value,
         password: form.password.value,
@@ -19,7 +19,10 @@ export async function handleFormSubmission(event) {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log(responseData.message);
+            const token = responseData.token;
+            const username = responseData.username;
+            localStorage.setItem('token', token);
+            localStorage.setItem('username', username);
         } else {
             console.error('Login failed:', response.status, response.statusText);
         }
@@ -28,3 +31,5 @@ export async function handleFormSubmission(event) {
     }
     event.target.reset();
 };
+
+
