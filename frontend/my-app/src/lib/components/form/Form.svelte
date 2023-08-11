@@ -1,12 +1,12 @@
 <script>
 	import { handleSubmit } from './formSubmit.js';
+    import Naslov from '$lib/components/headings/naslov.svelte';
+    let title = "Nova objava";
 </script>
 
 <div class="flex justify-center items-center w-screen h-screen gradient bg-gradient-to-r from-blue-400 via-purple-600 to-pink-600 animate-gradient">
     <div class="flex flex-col items-center justify-start bg-white w-4/5 sm:w-3/5 md:w-2/3 lg:w-1/2 xl:w-1/3 rounded-lg h-auto p-4 sm:p-8">
-        <h1 class="text-center text-4xl sm:text-5xl font-serif font-extrabold text-purple-500 m-4 sm:m-5">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r to-purple-700 from-purple-400">Nova objava</span>
-        </h1>
+        <Naslov data={title} />
         <form class="w-full max-w-sm" id="form_id" method="POST" on:submit={handleSubmit}>
             <div class="mb-2 p-2 sm:p-4">
                 <label for="naziv" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Naziv:</label>
