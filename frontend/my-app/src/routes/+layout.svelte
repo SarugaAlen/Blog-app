@@ -1,6 +1,5 @@
 <script>
 	import '../app.postcss';
-
 	import { onMount } from "svelte";
 
     let token;
@@ -28,7 +27,9 @@
 					</h2>
 				</div>
 				{#if token}
-				<p>{username}</p>			
+				<h1 class="text-center text-xl sm:text-2xl font-serif font-extrabold text-purple-500 m-4 sm:m-5">
+					<span class="text-transparent bg-clip-text bg-gradient-to-r to-purple-700 from-purple-400"><a href="/">{username}</a></span>
+				</h1>
 				{:else}
 				<h2
 					class="block mt-4 ml-auto lg:inline-block lg:mt-0 text-purple-500 hover:text-purple-800 mr-8"

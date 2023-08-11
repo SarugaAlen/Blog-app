@@ -1,7 +1,7 @@
 <script lang="ts">
 	// @ts-nocheck
 	import { blur } from 'svelte/transition';
-
+	import Naslov from '$lib/components/headings/naslov.svelte';
 	export let _id: string;
 	export let naziv: string;
 	export let opis: string;
@@ -12,11 +12,7 @@
 
 <div class="flex justify-center items-center w-screen h-screen gradient bg-gradient-to-r from-blue-400 via-purple-600 to-pink-600 animate-gradient">
 	<div class="flex flex-col justify-start items-center w-3/4 h-4/5 bg-white rounded shadow-lg">
-			<h1 class="text-center text-5xl font-serif font-extrabold text-purple-500 mt-10">
-				<span class="text-transparent bg-clip-text bg-gradient-to-r to-purple-700 from-purple-400"
-					>{naziv}</span
-				>
-			</h1>
+			<Naslov data={naziv} />
             <div class="text-lg mt-10 overflow-auto">
                 <p class="m-3">{opis}</p>
             </div>
