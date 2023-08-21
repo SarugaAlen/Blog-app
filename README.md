@@ -15,9 +15,9 @@ This is a blog website where users can read and write blog posts. The website ha
 
 ## Features
 
-  - User authentication and registration - TODO
+  - User authentication and registration
   - Creating blog posts
-  - Commenting on blog posts -TODO
+  - Commenting on blog posts
   - Viewing all posts
 
   ## Technologies
